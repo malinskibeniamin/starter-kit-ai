@@ -1,0 +1,2 @@
+# All other requests should forward to index.html so they are handled by react-router
+/*    /index.html   200

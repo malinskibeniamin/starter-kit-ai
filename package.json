@@ -6,14 +6,11 @@
   "scripts": {
     "analyze": "RSDOCTOR=true bun run build",
     "build": "rsbuild build && cp _redirects dist/",
-    "chromatic": "npx chromatic --playwright --project-token=chpt_38cee63534e7ddb --only-changed",
     "dev": "rsbuild dev",
     "format": "biome format --write && biome check --write --unsafe",
     "type:check": "tsc --noEmit --incremental",
     "preview": "rsbuild preview",
     "test": "vitest run",
-    "test:browser": "bunx playwright test",
-    "install:chromium": "bunx playwright install chromium",
     "shadcn:ui": "bun scripts/shadcn-ui.tsx",
     "shadcn:ui:add-all": "bun scripts/shadcn-ui.tsx --add-all",
     "shadcn:ui:add-all-force": "bun scripts/shadcn-ui.tsx --add-all --force",
@@ -25,7 +22,6 @@
     "@autoform/react": "^4.0.0",
     "@autoform/yup": "^3.0.0",
     "@autoform/zod": "^4.0.0",
-    "@chromatic-com/playwright": "^0.12.5",
     "@hookform/resolvers": "^5.2.1",
     "@radix-ui/react-primitive": "^2.1.3",
     "@radix-ui/react-scroll-area": "^1.2.9",
@@ -36,7 +32,6 @@
     "@tanstack/react-table": "^8.21.3",
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.21",
-    "chromatic": "^13.1.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -69,6 +64,7 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.1.2",
     "@rsbuild/core": "^1.4.15",
     "@rsbuild/plugin-react": "^1.3.5",
     "@rsbuild/plugin-svgr": "^1.2.2",

@@ -2,7 +2,7 @@
 
 import type { Root } from 'hast';
 import { type Components, toJsxRuntime } from 'hast-util-to-jsx-runtime';
-import { type DependencyList, Fragment, type ReactNode, use, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { type DependencyList, Fragment, type ReactNode, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import type {
   Awaitable,
@@ -217,8 +217,9 @@ export function useShiki(
   }, [key]);
 
   if (typeof window === 'undefined') {
-    // return promise on server
-    return use(_highlight(code, shikiOptions).then((tree) => renderHighlightWithMarkup(markupId, tree, shikiOptions)));
+    // For server-side rendering, we need to handle this differently without use()
+    // This will be handled by the useEffect above when the component mounts
+    return loading;
   }
 
   return rendered;

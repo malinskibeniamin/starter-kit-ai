@@ -1,6 +1,5 @@
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
-import { ComponentPreview } from '@/components/component-preview';
-import ButtonDemo from './button-demo';
+import { PageDemo } from './page-demo';
 
 export const demoRouter = createBrowserRouter([
   {
@@ -9,11 +8,11 @@ export const demoRouter = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/button-demo" replace />,
+        element: <Navigate to="/page-demo" replace />,
       },
       {
-        path: 'button-demo',
-        element: <ButtonDemo />,
+        path: 'page-demo',
+        element: <PageDemo />,
       },
     ],
   },
@@ -22,9 +21,7 @@ export const demoRouter = createBrowserRouter([
 function DemoLayout() {
   return (
     <div className="min-h-screen bg-background">
-      <ComponentPreview>
-        <Outlet />
-      </ComponentPreview>
+      <Outlet />
     </div>
   );
 }
